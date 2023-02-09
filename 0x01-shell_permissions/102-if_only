@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check the owner of the file
+file_owner=$(stat -c '%U' hello)
+
+# Change the owner of the file to betty if it is owned by guillaume
+if [ "$file_owner" == "guillaume" ]; then
+  sudo chown betty hello
+  echo "The owner of the file has been changed to betty."
+else
+  echo "The owner of the file is not guillaume. No changes made."
+fi
