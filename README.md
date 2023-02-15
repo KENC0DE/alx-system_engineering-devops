@@ -1,1 +1,1 @@
-pwd
+Manipulate permissions
