@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# 8 and 4
+cur=1
+while [ $cur -le 10 ]
+do
+	if [ $cur = 4 ]
+	then
+		echo "bad luck"
+	elif [ $cur = 8 ]
+	then 
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((cur++))
+done
+
