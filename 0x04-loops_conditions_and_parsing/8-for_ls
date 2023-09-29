@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Do for loop and cut.
+
+for i in *
+do
+	echo "$i" | cut -f2 -d '-'
+done
+
