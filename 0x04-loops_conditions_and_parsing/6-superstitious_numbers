@@ -5,16 +5,18 @@ while [ $cur -le 20 ]
 do
 	echo "$cur"
 
-	if [ $cur = 4 ]
-	then
-		echo "bad luck from China"
-	elif [ $cur = 9 ]
-	then 
-		echo "bad luck from Japan"
-	elif [ $cur = 17 ]
-	then
-		echo "bad luck from Italy"
-	fi
+	case $cur in
+		4)
+			echo "bad luck from China"
+		;;
+		9)
+			echo "bad luck from Japan"
+		;;
+		17)
+			echo "bad luck from Italy"
+		;;
+	esac
+	
 	((cur++))
 done
 
