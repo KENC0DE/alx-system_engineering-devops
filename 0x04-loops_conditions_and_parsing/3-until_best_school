@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# do Until loop.
+k=1
+until [ $k -gt 10 ]
+do 
+	echo "Best School"
+	((k++))
+done
+
