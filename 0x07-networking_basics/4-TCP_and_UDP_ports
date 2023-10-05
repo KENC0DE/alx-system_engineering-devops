@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Listining ports
 
-ss -tuln
+netstat -lp
