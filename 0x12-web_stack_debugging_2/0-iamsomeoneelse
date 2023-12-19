@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Runs 'comman on the passed user.'
+
+sudo -u $1 whoami
