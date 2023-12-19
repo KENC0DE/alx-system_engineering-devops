@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-# configure Nginx to to run as nginx user.
+# Run nginx as nginx user
 
-sed -i 's/user/user nginx/' /etc/nginx/nginx.conf
-sed -i 's/listen 80 default_server;/listen 8080 default_server;' /etc/nginx/sites-available
-sed -i 's/listen [::]:80 default_server;/listen [::]:8080 default_server;' /etc/nginx/sites-available
+# change perms on config file
+sudo chmod 777 /etc/nginx/nginx.conf
+
+# update listening ports
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+
+# restart nginx
+sudo -u nginx nginx
