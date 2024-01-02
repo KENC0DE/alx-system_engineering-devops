@@ -2,7 +2,7 @@
 """Request employee ID from API
 """
 
-from json import dump
+import csv
 import requests
 from sys import argv
 
@@ -26,14 +26,14 @@ if __name__ == "__main__":
     user = make_request('users', ('id', argv[1]))[0]
     tasks = make_request('todos', ('userId', argv[1]))
 
-    # format before exporting
-    user_id = user['id']
-    export = {user_id: []}
-    for task in tasks:
-        export[user_id].append({'task': task['title'],
-                                'completed': task['completed'],
-                                'username': user['username']})
-
-    filename = argv[1] + '.json'
-    with open(filename, mode='w') as f:
-        dump(export, f)
+    csv_filename = argv[1] + '.csv'
+    with open(csv_filename, mode='w') as f:
+        writer = csv.writer(f,
+                            delimiter=',',
+                            quotechar='"',
+                            quoting=csv.QUOTE_ALL)
+        for task in tasks:
+            writer.writerow([user['id'],
+                            user['username'],
+                            task['completed'],
+                            task['title']])
