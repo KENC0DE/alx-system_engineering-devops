@@ -23,4 +23,4 @@ def number_of_subscribers(subreddit):
     data = r.json()['data']
     pages = data['children']
     page_data = pages[0]['data']
-    return page_data['subreddit_subscribers']
+    return page_data['subreddit_subscribers'], 200
