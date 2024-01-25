@@ -63,10 +63,8 @@ server {
 		proxy_pass http://0.0.0.0:5001/number_odd_or_even/$int;
 	}
 	
-	location ~ ^/api/(.*)$ {
-		set $apnd $1;
-		include proxy_params;
-		proxy_pass http://0.0.0.0:5002/api/$apnd;
+	location /api/ {
+		proxy_pass http://0.0.0.0:5002/api/;
 	}
 	add_header X-Served-By $hostname;
 
